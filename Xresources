@@ -10,6 +10,7 @@ dwm.gappov: 30
 dwm.swallowfloating: 0
 dwm.viewonrulestag: 1
 dwm.user_bh: 2
+dwm.showtitle: 1
 dwm.col_norm_fg: #bbbbbb
 dwm.col_norm_bg: #222222
 dwm.col_norm_border: #444444

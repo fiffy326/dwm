@@ -13,6 +13,7 @@ static unsigned int gappov     = 30; /* horiz outer gap around windows */
 static int swallowfloating     = 0;  /* 1 means swallow floating windows by default */
 static int viewonrulestag      = 1;  /* 1 means opened apps move view to rule tag */
 static int user_bh             = 2;  /* 2 is default spacing around bar font */
+static int showtitle           = 1;  /* 1 means show the window title in the bar */
 static const char *fonts[]     = { "monospace:size=10" };
 static char dmenufont[]        = "monospace:size=10";
 static char col_norm_fg[]      = "#bbbbbb";
@@ -131,6 +132,7 @@ ResourcePref resources[] = {
 	{ "swallowfloating",  INTEGER, &swallowfloating  },
 	{ "viewonrulestag",   INTEGER, &viewonrulestag   },
 	{ "user_bh",          INTEGER, &user_bh          },
+	{ "showtitle",        INTEGER, &showtitle        },
 	{ "col_norm_fg",      STRING,  &col_norm_fg      },
 	{ "col_norm_bg",      STRING,  &col_norm_bg      },
 	{ "col_norm_border",  STRING,  &col_norm_border  },
