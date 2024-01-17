@@ -114,3 +114,4 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+/* vim:set ts=4: */
