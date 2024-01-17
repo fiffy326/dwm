@@ -13,8 +13,8 @@ static unsigned int gappov     = 30; /* horiz outer gap around windows */
 static int swallowfloating     = 0;  /* 1 means swallow floating windows by default */
 static int viewonrulestag      = 1;  /* 1 means opened apps move view to rule tag */
 static int user_bh             = 2;  /* 2 is default spacing around bar font */
-static const char *fonts[]     = { "monospace:size=10" };
-static char dmenufont[]        = "monospace:size=10";
+static const char *fonts[]     = { "Symbols Nerd Font:size=18", "Iosevka NFM Medium:size=18" };
+static char dmenufont[]        = "Iosevka NFM Medium:size=18";
 static char col_norm_fg[]      = "#bbbbbb";
 static char col_norm_bg[]      = "#222222";
 static char col_norm_border[]  = "#444444";
@@ -46,25 +46,33 @@ static const unsigned int alphas[][3] = {
 
 /* tagging */
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
-static const char *tags[]    = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *defaulttagapps[] = { "st", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
+static const char *tags[]    = { "󰣇", "", "", "󰈎", "", "", "󰓓", "󰙯", "" };
+static const char *tagsalt[] = { "󰬺", "󰬻", "󰬼", "󰬽", "󰬾", "󰬿", "󰭀", "󰭁", "󰭂" };
+static const char *defaulttagapps[] = { "alacritty", "firefox", "thunderbird", "caprine", "calendar", "virt-manager", "steam", "discord", "spotify" };
 
-static unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
-static unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
-static unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-static int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+static unsigned int ulinepad	 = 5; /* horizontal padding between the underline and tag */
+static unsigned int ulinestroke	 = 2; /* thickness / height of the underline */
+static unsigned int ulinevoffset = 0; /* how far above the bottom of the bar the line should appear */
+static int ulineall              = 0; /* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class          instance  title           tags mask    isfloating  isterminal   noswallow  monitor */
+	{ NULL,           NULL,     "Event Tester", 0,           0,          0,           1,         -1 }, /* xev */
+	{ "Gimp",         NULL,     NULL,           0,           1,          0,           0,         -1 },
+	{ "st",           NULL,     NULL,           0,           0,          1,           0,         -1 },
+	{ "Alacritty",    NULL,     NULL,           0,           0,          1,           0,         -1 },
+	{ "firefox",      NULL,     NULL,           1 << 1,      0,          0,           0,         -1 },
+	{ "thunderbird",  NULL,     NULL,           1 << 2,      0,          0,           0,         -1 },
+	{ "Caprine",      NULL,     NULL,           1 << 3,      0,          0,           0,         -1 },
+	{ NULL,           NULL,     "Calendar",     1 << 4,      0,          1,           0,         -1 },
+	{ "Virt-manager", NULL,     NULL,           1 << 5,      0,          0,           0,         -1 },
+	{ "steam",        NULL,     NULL,           1 << 6,      0,          0,           0,         -1 },
+	{ "discord",      NULL,     NULL,           1 << 7,      0,          0,           0,         -1 },
+	{ "Spotify",      NULL,     NULL,           1 << 8,      0,          0,           0,         -1 },
 };
 
 /* layout(s) */
@@ -97,7 +105,7 @@ static const Layout layouts[] = {
 
 /* custom symbols for nr. of clients in monocle layout */
 /* when clients >= LENGTH(monocles), uses the last element */
-static const char *monocles[] = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]", "[9]", "[9+]" };
+static const char *monocles[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "󰎳", "󰎶", "󰎹", "󰎼", "󰎿" };
 
 /* key definitions */
 #define MODKEY Mod1Mask
@@ -228,6 +236,9 @@ static const Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	{ ClkStatusText,        MODKEY,         Button2,        spawn,          SHCMD("volume toggle") },
+	{ ClkStatusText,        MODKEY,         Button4,        spawn,          SHCMD("volume up 1")   },
+	{ ClkStatusText,        MODKEY,         Button5,        spawn,          SHCMD("volume down 1") },
 };
 
 /* vim:set ts=4: */
