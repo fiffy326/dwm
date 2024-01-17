@@ -19,6 +19,10 @@ dwm.col_norm_border: #444444
 dwm.col_sel_fg: #eeeeee
 dwm.col_sel_bg: #005577
 dwm.col_sel_border: #005577
+dwm.ulinepad: 5
+dwm.ulinestroke: 2
+dwm.ulinevoffset: 0
+dwm.ulineall: 0
 dwm.mfact: 0.55
 dwm.nmaster: 1
 dwm.resizehints: 1
