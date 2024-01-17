@@ -1,36 +1,40 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx  = 1;  /* border pixel of windows */
-static unsigned int snap      = 32; /* snap pixel */
-static int showbar            = 1;  /* 0 means no bar */
-static int topbar             = 1;  /* 0 means bottom bar */
-static int smartgaps          = 0;  /* 1 means no outer gap when only 1 window */
-static unsigned int gappih    = 20; /* horiz inner gap between windows */
-static unsigned int gappiv    = 10; /* vert inner gap between windows */
-static unsigned int gappoh    = 10; /* vert outer gap around windows */
-static unsigned int gappov    = 30; /* horiz outer gap around windows */
-static int swallowfloating    = 0;  /* 1 means swallow floating windows by default */
-static int viewonrulestag     = 1;  /* 1 means opened apps move view to rule tag */
-static int user_bh            = 2;  /* 2 is default spacing around bar font */
-static char font_primary[]    = "monospace:size=10";
-static char font_symbols[]    = "monospace:size=10";
-static char font_dmenu[]      = "monospace:size=10";
-static const char *fonts[]    = { font_symbols, font_primary };
-static char col_norm_fg[]     = "#bbbbbb";
-static char col_norm_bg[]     = "#222222";
-static char col_norm_border[] = "#444444";
-static char col_sel_fg[]      = "#eeeeee";
-static char col_sel_bg[]      = "#005577";
-static char col_sel_border[]  = "#005577";
-static char col_urg_fg[]      = "#eeeeee";
-static char col_urg_bg[]      = "#005577";
-static char col_urg_border[]  = "#ff0000";
-static char *colors[][3]      = {
-	/*               fg           bg           border          */
-	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
-	[SchemeSel]  = { col_sel_fg,  col_sel_bg,  col_sel_border  },
-	[SchemeUrg]  = { col_urg_fg,  col_urg_bg,  col_urg_border  },
+static unsigned int borderpx   = 1;  /* border pixel of windows */
+static unsigned int snap       = 32; /* snap pixel */
+static int showbar             = 1;  /* 0 means no bar */
+static int topbar              = 1;  /* 0 means bottom bar */
+static int smartgaps           = 0;  /* 1 means no outer gap when only 1 window */
+static unsigned int gappih     = 20; /* horiz inner gap between windows */
+static unsigned int gappiv     = 10; /* vert inner gap between windows */
+static unsigned int gappoh     = 10; /* vert outer gap around windows */
+static unsigned int gappov     = 30; /* horiz outer gap around windows */
+static int swallowfloating     = 0;  /* 1 means swallow floating windows by default */
+static int viewonrulestag      = 1;  /* 1 means opened apps move view to rule tag */
+static int user_bh             = 2;  /* 2 is default spacing around bar font */
+static char font_primary[]     = "monospace:size=10";
+static char font_symbols[]     = "monospace:size=10";
+static char font_dmenu[]       = "monospace:size=10";
+static const char *fonts[]     = { font_symbols, font_primary };
+static char col_norm_fg[]      = "#bbbbbb";
+static char col_norm_bg[]      = "#222222";
+static char col_norm_border[]  = "#444444";
+static char col_sel_fg[]       = "#eeeeee";
+static char col_sel_bg[]       = "#005577";
+static char col_sel_border[]   = "#005577";
+static char col_urg_fg[]       = "#eeeeee";
+static char col_urg_bg[]       = "#005577";
+static char col_urg_border[]   = "#ff0000";
+static char col_title_fg[]     = "#eeeeee";
+static char col_title_bg[]     = "#005577";
+static char col_title_border[] = "#005577";
+static char *colors[][3]       = {
+	/*                fg            bg            border           */
+	[SchemeNorm]  = { col_norm_fg,  col_norm_bg,  col_norm_border  },
+	[SchemeSel]   = { col_sel_fg,   col_sel_bg,   col_sel_border   },
+	[SchemeUrg]   = { col_urg_fg,   col_urg_bg,   col_urg_border   },
+	[SchemeTitle] = { col_title_fg, col_title_bg, col_title_border },
 };
 
 /* tagging */
@@ -107,38 +111,41 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font_dmenu
 
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
-	{ "borderpx",        INTEGER, &borderpx        },
-	{ "snap",            INTEGER, &snap            },
-	{ "showbar",         INTEGER, &showbar         },
-	{ "topbar",          INTEGER, &topbar          },
-	{ "smartgaps",       INTEGER, &smartgaps       },
-	{ "gappih",          INTEGER, &gappih          },
-	{ "gappiv",          INTEGER, &gappiv          },
-	{ "gappoh",          INTEGER, &gappoh          },
-	{ "gappov",          INTEGER, &gappov          },
-	{ "swallowfloating", INTEGER, &swallowfloating },
-	{ "viewonrulestag",  INTEGER, &viewonrulestag  },
-	{ "user_bh",         INTEGER, &user_bh         },
-	{ "font_primary",    STRING,  &font_primary    },
-	{ "font_symbols",    STRING,  &font_symbols    },
-	{ "font_dmenu",      STRING,  &font_dmenu      },
-	{ "col_norm_fg",     STRING,  &col_norm_fg     },
-	{ "col_norm_bg",     STRING,  &col_norm_bg     },
-	{ "col_norm_border", STRING,  &col_norm_border },
-	{ "col_sel_fg",      STRING,  &col_sel_fg      },
-	{ "col_sel_bg",      STRING,  &col_sel_bg      },
-	{ "col_sel_border",  STRING,  &col_sel_border  },
-	{ "col_urg_fg",      STRING,  &col_urg_fg      },
-	{ "col_urg_bg",      STRING,  &col_urg_bg      },
-	{ "col_urg_border",  STRING,  &col_urg_border  },
-	{ "ulinepad",        INTEGER, &ulinepad        },
-	{ "ulinestroke",     INTEGER, &ulinestroke     },
-	{ "ulinevoffset",    INTEGER, &ulinevoffset    },
-	{ "ulineall",        INTEGER, &ulineall        },
-	{ "mfact",           FLOAT,   &mfact           },
-	{ "nmaster",         INTEGER, &nmaster         },
-	{ "resizehints",     INTEGER, &resizehints     },
-	{ "lockfullscreen",  INTEGER, &lockfullscreen  },
+	{ "borderpx",         INTEGER, &borderpx         },
+	{ "snap",             INTEGER, &snap             },
+	{ "showbar",          INTEGER, &showbar          },
+	{ "topbar",           INTEGER, &topbar           },
+	{ "smartgaps",        INTEGER, &smartgaps        },
+	{ "gappih",           INTEGER, &gappih           },
+	{ "gappiv",           INTEGER, &gappiv           },
+	{ "gappoh",           INTEGER, &gappoh           },
+	{ "gappov",           INTEGER, &gappov           },
+	{ "swallowfloating",  INTEGER, &swallowfloating  },
+	{ "viewonrulestag",   INTEGER, &viewonrulestag   },
+	{ "user_bh",          INTEGER, &user_bh          },
+	{ "font_primary",     STRING,  &font_primary     },
+	{ "font_symbols",     STRING,  &font_symbols     },
+	{ "font_dmenu",       STRING,  &font_dmenu       },
+	{ "col_norm_fg",      STRING,  &col_norm_fg      },
+	{ "col_norm_bg",      STRING,  &col_norm_bg      },
+	{ "col_norm_border",  STRING,  &col_norm_border  },
+	{ "col_sel_fg",       STRING,  &col_sel_fg       },
+	{ "col_sel_bg",       STRING,  &col_sel_bg       },
+	{ "col_sel_border",   STRING,  &col_sel_border   },
+	{ "col_urg_fg",       STRING,  &col_urg_fg       },
+	{ "col_urg_bg",       STRING,  &col_urg_bg       },
+	{ "col_urg_border",   STRING,  &col_urg_border   },
+	{ "col_title_fg",     STRING,  &col_title_fg     },
+	{ "col_title_bg",     STRING,  &col_title_bg     },
+	{ "col_title_border", STRING,  &col_title_border },
+	{ "ulinepad",         INTEGER, &ulinepad         },
+	{ "ulinestroke",      INTEGER, &ulinestroke      },
+	{ "ulinevoffset",     INTEGER, &ulinevoffset     },
+	{ "ulineall",         INTEGER, &ulineall         },
+	{ "mfact",            FLOAT,   &mfact            },
+	{ "nmaster",          INTEGER, &nmaster          },
+	{ "resizehints",      INTEGER, &resizehints      },
+	{ "lockfullscreen",   INTEGER, &lockfullscreen   },
 };
 
 static const Key keys[] = {
