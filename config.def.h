@@ -34,6 +34,11 @@ static const int momentaryalttags = 0; /* 1 means alttags will show only when ke
 static const char *tags[]    = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+static unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
+static unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
+static unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
+static int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -119,6 +124,10 @@ ResourcePref resources[] = {
 	{ "col_sel_fg",      STRING,  &col_sel_fg      },
 	{ "col_sel_bg",      STRING,  &col_sel_bg      },
 	{ "col_sel_border",  STRING,  &col_sel_border  },
+	{ "ulinepad",        INTEGER, &ulinepad        },
+	{ "ulinestroke",     INTEGER, &ulinestroke     },
+	{ "ulinevoffset",    INTEGER, &ulinevoffset    },
+	{ "ulineall",        INTEGER, &ulineall        },
 	{ "mfact",           FLOAT,   &mfact           },
 	{ "nmaster",         INTEGER, &nmaster         },
 	{ "resizehints",     INTEGER, &resizehints     },
