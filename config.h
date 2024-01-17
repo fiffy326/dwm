@@ -28,6 +28,7 @@ static char col_urg_border[]   = "#ff0000";
 static char col_title_fg[]     = "#eeeeee";
 static char col_title_bg[]     = "#005577";
 static char col_title_border[] = "#005577";
+static char col_dmenu_hover[]  = "#005577";
 static char *colors[][3]       = {
 	/*                fg            bg            border           */
 	[SchemeNorm]  = { col_norm_fg,  col_norm_bg,  col_norm_border  },
@@ -123,7 +124,7 @@ static const char *monocles[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "󰎳"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_border, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_dmenu_hover, "-sf", col_sel_fg, NULL };
 #define TERMINAL_ENVVAR "TERMINAL"
 
 /* Xresources preferences to load at startup */
@@ -153,6 +154,7 @@ ResourcePref resources[] = {
 	{ "col_title_fg",     STRING,  &col_title_fg     },
 	{ "col_title_bg",     STRING,  &col_title_bg     },
 	{ "col_title_border", STRING,  &col_title_border },
+	{ "col_dmenu_hover",  STRING,  &col_dmenu_hover  },
 	{ "ulinepad",         INTEGER, &ulinepad         },
 	{ "ulinestroke",      INTEGER, &ulinestroke      },
 	{ "ulinevoffset",     INTEGER, &ulinevoffset     },

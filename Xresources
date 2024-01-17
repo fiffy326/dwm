@@ -23,6 +23,7 @@ dwm.col_urg_border: #ff0000
 dwm.col_title_fg: #eeeeee
 dwm.col_title_bg: #005577
 dwm.col_title_border: #005577
+dwm.col_dmenu_hover: #005577
 dwm.ulinepad: 5
 dwm.ulinestroke: 2
 dwm.ulinevoffset: 0
