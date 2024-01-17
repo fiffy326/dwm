@@ -1,21 +1,24 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+static unsigned int borderpx  = 1;  /* border pixel of windows */
+static unsigned int snap      = 32; /* snap pixel */
+static int showbar            = 1;  /* 0 means no bar */
+static int topbar             = 1;  /* 0 means bottom bar */
+static char font_primary[]    = "monospace:size=10";
+static char font_symbols[]    = "monospace:size=10";
+static char font_dmenu[]      = "monospace:size=10";
+static const char *fonts[]    = { font_symbols, font_primary };
+static char col_norm_fg[]     = "#bbbbbb";
+static char col_norm_bg[]     = "#222222";
+static char col_norm_border[] = "#444444";
+static char col_sel_fg[]      = "#eeeeee";
+static char col_sel_bg[]      = "#005577";
+static char col_sel_border[]  = "#005577";
+static char *colors[][3]      = {
+	/*               fg           bg           border          */
+	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
+	[SchemeSel]  = { col_sel_fg,  col_sel_bg,  col_sel_border  },
 };
 
 /* tagging */
@@ -32,10 +35,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static int nmaster     = 1;    /* number of clients in master area */
+static int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -57,8 +60,29 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font_dmenu, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_border, "-sf", col_sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
+
+/* Xresources preferences to load at startup */
+ResourcePref resources[] = {
+	{ "borderpx",        INTEGER, &borderpx        },
+	{ "snap",            INTEGER, &snap            },
+	{ "showbar",         INTEGER, &showbar         },
+	{ "topbar",          INTEGER, &topbar          },
+	{ "font_primary",    STRING,  &font_primary    },
+	{ "font_symbols",    STRING,  &font_symbols    },
+	{ "font_dmenu",      STRING,  &font_dmenu      },
+	{ "col_norm_fg",     STRING,  &col_norm_fg     },
+	{ "col_norm_bg",     STRING,  &col_norm_bg     },
+	{ "col_norm_border", STRING,  &col_norm_border },
+	{ "col_sel_fg",      STRING,  &col_sel_fg      },
+	{ "col_sel_bg",      STRING,  &col_sel_bg      },
+	{ "col_sel_border",  STRING,  &col_sel_border  },
+	{ "mfact",           FLOAT,   &mfact           },
+	{ "nmaster",         INTEGER, &nmaster         },
+	{ "resizehints",     INTEGER, &resizehints     },
+	{ "lockfullscreen",  INTEGER, &lockfullscreen  },
+};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
