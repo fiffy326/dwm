@@ -2,6 +2,11 @@ dwm.borderpx: 1
 dwm.snap: 32
 dwm.showbar: 1
 dwm.topbar: 1
+dwm.smartgaps: 0
+dwm.gappih: 20
+dwm.gappiv: 10
+dwm.gappoh: 10
+dwm.gappov: 30
 dwm.font_primary: monospace:size=10
 dwm.font_symbols: monospace:size=10
 dwm.font_dmenu: monospace:size=10
