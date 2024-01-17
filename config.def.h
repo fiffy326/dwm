@@ -81,7 +81,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font_dmenu, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_border, "-sf", col_sel_fg, NULL };
-static const char *termcmd[]  = { "st", NULL };
+#define TERMINAL_ENVVAR "TERMINAL"
 
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
