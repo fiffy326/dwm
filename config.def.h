@@ -23,10 +23,14 @@ static char col_norm_border[] = "#444444";
 static char col_sel_fg[]      = "#eeeeee";
 static char col_sel_bg[]      = "#005577";
 static char col_sel_border[]  = "#005577";
+static char col_urg_fg[]      = "#eeeeee";
+static char col_urg_bg[]      = "#005577";
+static char col_urg_border[]  = "#ff0000";
 static char *colors[][3]      = {
 	/*               fg           bg           border          */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
 	[SchemeSel]  = { col_sel_fg,  col_sel_bg,  col_sel_border  },
+	[SchemeUrg]  = { col_urg_fg,  col_urg_bg,  col_urg_border  },
 };
 
 /* tagging */
@@ -124,6 +128,9 @@ ResourcePref resources[] = {
 	{ "col_sel_fg",      STRING,  &col_sel_fg      },
 	{ "col_sel_bg",      STRING,  &col_sel_bg      },
 	{ "col_sel_border",  STRING,  &col_sel_border  },
+	{ "col_urg_fg",      STRING,  &col_urg_fg      },
+	{ "col_urg_bg",      STRING,  &col_urg_bg      },
+	{ "col_urg_border",  STRING,  &col_urg_border  },
 	{ "ulinepad",        INTEGER, &ulinepad        },
 	{ "ulinestroke",     INTEGER, &ulinestroke     },
 	{ "ulinevoffset",    INTEGER, &ulinevoffset    },
