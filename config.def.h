@@ -12,6 +12,7 @@ static unsigned int gappoh    = 10; /* vert outer gap around windows */
 static unsigned int gappov    = 30; /* horiz outer gap around windows */
 static int swallowfloating    = 0;  /* 1 means swallow floating windows by default */
 static int viewonrulestag     = 1;  /* 1 means opened apps move view to rule tag */
+static int user_bh            = 2;  /* 2 is default spacing around bar font */
 static char font_primary[]    = "monospace:size=10";
 static char font_symbols[]    = "monospace:size=10";
 static char font_dmenu[]      = "monospace:size=10";
@@ -108,6 +109,7 @@ ResourcePref resources[] = {
 	{ "gappov",          INTEGER, &gappov          },
 	{ "swallowfloating", INTEGER, &swallowfloating },
 	{ "viewonrulestag",  INTEGER, &viewonrulestag  },
+	{ "user_bh",         INTEGER, &user_bh         },
 	{ "font_primary",    STRING,  &font_primary    },
 	{ "font_symbols",    STRING,  &font_symbols    },
 	{ "font_dmenu",      STRING,  &font_dmenu      },

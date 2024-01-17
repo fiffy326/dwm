@@ -9,6 +9,7 @@ dwm.gappoh: 10
 dwm.gappov: 30
 dwm.swallowfloating: 0
 dwm.viewonrulestag: 1
+dwm.user_bh: 2
 dwm.font_primary: monospace:size=10
 dwm.font_symbols: monospace:size=10
 dwm.font_dmenu: monospace:size=10
