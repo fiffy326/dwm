@@ -10,6 +10,7 @@ static unsigned int gappih    = 20; /* horiz inner gap between windows */
 static unsigned int gappiv    = 10; /* vert inner gap between windows */
 static unsigned int gappoh    = 10; /* vert outer gap around windows */
 static unsigned int gappov    = 30; /* horiz outer gap around windows */
+static int swallowfloating    = 0;  /* 1 means swallow floating windows by default */
 static char font_primary[]    = "monospace:size=10";
 static char font_symbols[]    = "monospace:size=10";
 static char font_dmenu[]      = "monospace:size=10";
@@ -34,9 +35,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -100,6 +103,7 @@ ResourcePref resources[] = {
 	{ "gappiv",          INTEGER, &gappiv          },
 	{ "gappoh",          INTEGER, &gappoh          },
 	{ "gappov",          INTEGER, &gappov          },
+	{ "swallowfloating", INTEGER, &swallowfloating },
 	{ "font_primary",    STRING,  &font_primary    },
 	{ "font_symbols",    STRING,  &font_symbols    },
 	{ "font_dmenu",      STRING,  &font_dmenu      },
