@@ -13,10 +13,8 @@ static unsigned int gappov     = 30; /* horiz outer gap around windows */
 static int swallowfloating     = 0;  /* 1 means swallow floating windows by default */
 static int viewonrulestag      = 1;  /* 1 means opened apps move view to rule tag */
 static int user_bh             = 2;  /* 2 is default spacing around bar font */
-static char font_primary[]     = "monospace:size=10";
-static char font_symbols[]     = "monospace:size=10";
-static char font_dmenu[]       = "monospace:size=10";
-static const char *fonts[]     = { font_symbols, font_primary };
+static const char *fonts[]     = { "Symbols Nerd Font:size=18", "Iosevka NFM Medium:size=18" };
+static char dmenufont[]        = "Iosevka NFM Medium:size=18";
 static char col_norm_fg[]      = "#bbbbbb";
 static char col_norm_bg[]      = "#222222";
 static char col_norm_border[]  = "#444444";
@@ -124,7 +122,7 @@ static const char *monocles[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "󰎳"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font_dmenu, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_border, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_border, "-sf", col_sel_fg, NULL };
 #define TERMINAL_ENVVAR "TERMINAL"
 
 /* Xresources preferences to load at startup */
@@ -141,9 +139,6 @@ ResourcePref resources[] = {
 	{ "swallowfloating",  INTEGER, &swallowfloating  },
 	{ "viewonrulestag",   INTEGER, &viewonrulestag   },
 	{ "user_bh",          INTEGER, &user_bh          },
-	{ "font_primary",     STRING,  &font_primary     },
-	{ "font_symbols",     STRING,  &font_symbols     },
-	{ "font_dmenu",       STRING,  &font_dmenu       },
 	{ "col_norm_fg",      STRING,  &col_norm_fg      },
 	{ "col_norm_bg",      STRING,  &col_norm_bg      },
 	{ "col_norm_border",  STRING,  &col_norm_border  },
