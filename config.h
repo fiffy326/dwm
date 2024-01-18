@@ -245,4 +245,4 @@ static const Button buttons[] = {
 	{ ClkStatusText,        MODKEY,         Button5,        spawn,          SHCMD("volume down 1") },
 };
 
-/* vim:set ts=4: */
+/* vim:set ts=4 sts=4 sw=4: */
