@@ -48,9 +48,9 @@ static const unsigned int alphas[][3] = {
 
 /* tagging */
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
-static const char *tags[]    = { "󰣇", "", "", "󰈎", "", "", "󰓓", "󰙯", "" };
+static const char *tags[]    = { "󰣇", "", "", "󰈎", "", "", "󰓓", "", "󰙯" };
 static const char *tagsalt[] = { "󰬺", "󰬻", "󰬼", "󰬽", "󰬾", "󰬿", "󰭀", "󰭁", "󰭂" };
-static const char *defaulttagapps[] = { "alacritty", "firefox", "thunderbird", "caprine", "calendar", "virt-manager", "steam", "discord", "spotify" };
+static const char *defaulttagapps[] = { "alacritty", "firefox", "thunderbird", "caprine", "calendar", "virt-manager", "steam", "spotify", "discord" };
 
 static unsigned int ulinepad	 = 5; /* horizontal padding between the underline and tag */
 static unsigned int ulinestroke	 = 2; /* thickness / height of the underline */
@@ -73,8 +73,8 @@ static const Rule rules[] = {
 	{ NULL,           NULL,     "Calendar",     1 << 4,      0,          1,           0,         -1 },
 	{ "Virt-manager", NULL,     NULL,           1 << 5,      0,          0,           0,         -1 },
 	{ "steam",        NULL,     NULL,           1 << 6,      0,          0,           0,         -1 },
-	{ "discord",      NULL,     NULL,           1 << 7,      0,          0,           0,         -1 },
-	{ "Spotify",      NULL,     NULL,           1 << 8,      0,          0,           0,         -1 },
+	{ "Spotify",      NULL,     NULL,           1 << 7,      0,          0,           0,         -1 },
+	{ "discord",      NULL,     NULL,           1 << 8,      0,          0,           0,         -1 },
 };
 
 /* layout(s) */
