@@ -14,6 +14,7 @@ static int swallowfloating     = 0;  /* 1 means swallow floating windows by defa
 static int viewonrulestag      = 1;  /* 1 means opened apps move view to rule tag */
 static int user_bh             = 2;  /* 2 is default spacing around bar font */
 static int showtitle           = 1;  /* 1 means show the window title in the bar */
+static int focusonwheel        = 0;
 static const char *fonts[]     = { "monospace:size=10" };
 static char dmenufont[]        = "monospace:size=10";
 static char col_norm_fg[]      = "#bbbbbb";
