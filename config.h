@@ -36,7 +36,7 @@ static char *colors[][3]       = {
 	[SchemeUrg]   = { col_urg_fg,   col_urg_bg,   col_urg_border   },
 	[SchemeTitle] = { col_title_fg, col_title_bg, col_title_border },
 };
-static const unsigned int baralpha    = 0xd0;
+static const unsigned int baralpha    = 216;
 static const unsigned int borderalpha = OPAQUE;
 static const unsigned int alphas[][3] = {
 	/*                fg      bg        border      */
@@ -244,5 +244,3 @@ static const Button buttons[] = {
 	{ ClkStatusText,        MODKEY,         Button4,        spawn,          SHCMD("volume up 1")   },
 	{ ClkStatusText,        MODKEY,         Button5,        spawn,          SHCMD("volume down 1") },
 };
-
-/* vim:set ts=4 sts=4 sw=4: */
