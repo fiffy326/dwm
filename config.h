@@ -51,7 +51,7 @@ static const unsigned int alphas[][3] = {
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
 static const char *tags[]    = { "󰣇", "", "", "󰈎", "", "", "󰓓", "", "󰙯" };
 static const char *tagsalt[] = { "󰬺", "󰬻", "󰬼", "󰬽", "󰬾", "󰬿", "󰭀", "󰭁", "󰭂" };
-static const char *defaulttagapps[] = { "alacritty", "firefox", "thunderbird", "caprine", "calendar", "virt-manager", "steam", "spotify", "discord" };
+static const char *defaulttagapps[] = { "st", "firefox", "thunderbird", "caprine", "calendar", "virt-manager", "steam", "spotify", "discord" };
 
 static unsigned int ulinepad	 = 5; /* horizontal padding between the underline and tag */
 static unsigned int ulinestroke	 = 2; /* thickness / height of the underline */
