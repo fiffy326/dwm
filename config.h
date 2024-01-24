@@ -143,6 +143,7 @@ ResourcePref resources[] = {
 	{ "viewonrulestag",   INTEGER, &viewonrulestag   },
 	{ "user_bh",          INTEGER, &user_bh          },
 	{ "showtitle",        INTEGER, &showtitle        },
+	{ "focusonwheel",     INTEGER, &focusonwheel     },
 	{ "col_norm_fg",      STRING,  &col_norm_fg      },
 	{ "col_norm_bg",      STRING,  &col_norm_bg      },
 	{ "col_norm_border",  STRING,  &col_norm_border  },
