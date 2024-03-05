@@ -49,14 +49,38 @@ static const unsigned int alphas[][3] = {
 
 /* tagging */
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
-static const char *tags[]    = { "󰣇", "", "", "󰈎", "", "", "󰓓", "", "󰙯" };
+static const char *tags[]    = { "󰣇", "", "", "", "", "", "󰓓", "󰙯", "" };
 static const char *tagsalt[] = { "󰬺", "󰬻", "󰬼", "󰬽", "󰬾", "󰬿", "󰭀", "󰭁", "󰭂" };
-static const char *defaulttagapps[] = { "st", "firefox", "thunderbird", "caprine", "calendar", "virt-manager", "steam", "spotify", "discord" };
+static const char *defaulttagapps[] = {
+	"st",
+	"st",
+	"virt-manager",
+	"firefox",
+	"thunderbird",
+	"gnome-calendar",
+	"steam",
+	"discord",
+	"spotify"
+};
 
 static unsigned int ulinepad	 = 5; /* horizontal padding between the underline and tag */
 static unsigned int ulinestroke	 = 2; /* thickness / height of the underline */
 static unsigned int ulinevoffset = 0; /* how far above the bottom of the bar the line should appear */
 static int ulineall              = 0; /* 1 to show underline on all tags, 0 for just the active ones */
+
+/* tag masks */
+static const unsigned int tagmask[] = {
+	0,
+	1 << 0,
+	1 << 1,
+	1 << 2,
+	1 << 3,
+	1 << 4,
+	1 << 5,
+	1 << 6,
+	1 << 7,
+	1 << 8
+};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -68,14 +92,14 @@ static const Rule rules[] = {
 	{ "Gimp",         NULL,     NULL,           0,           1,          0,           0,         -1 },
 	{ "st",           NULL,     NULL,           0,           0,          1,           0,         -1 },
 	{ "Alacritty",    NULL,     NULL,           0,           0,          1,           0,         -1 },
-	{ "firefox",      NULL,     NULL,           1 << 1,      0,          0,           0,         -1 },
-	{ "thunderbird",  NULL,     NULL,           1 << 2,      0,          0,           0,         -1 },
-	{ "Caprine",      NULL,     NULL,           1 << 3,      0,          0,           0,         -1 },
-	{ NULL,           NULL,     "Calendar",     1 << 4,      0,          1,           0,         -1 },
-	{ "Virt-manager", NULL,     NULL,           1 << 5,      0,          0,           0,         -1 },
-	{ "steam",        NULL,     NULL,           1 << 6,      0,          0,           0,         -1 },
-	{ "Spotify",      NULL,     NULL,           1 << 7,      0,          0,           0,         -1 },
-	{ "discord",      NULL,     NULL,           1 << 8,      0,          0,           0,         -1 },
+	{ "cool-retro-term", NULL,  NULL,           0,           0,          1,           0,         -1 },
+	{ "Virt-manager", NULL,     NULL,           tagmask[3],  0,          0,           0,         -1 },
+	{ "firefox",      NULL,     NULL,           tagmask[4],  0,          0,           0,         -1 },
+	{ "thunderbird",  NULL,     NULL,           tagmask[5],  0,          0,           0,         -1 },
+	{ "gnome-calendar", NULL,   NULL,           tagmask[6],  0,          0,           0,         -1 },
+	{ "steam",        NULL,     NULL,           tagmask[7],  0,          0,           0,         -1 },
+	{ "discord",      NULL,     NULL,           tagmask[8],  0,          0,           0,         -1 },
+	{ "Spotify",      NULL,     NULL,           tagmask[9],  0,          0,           0,         -1 },
 };
 
 /* layout(s) */
