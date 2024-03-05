@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+static int framerate           = 60; /* monitor refresh rate */
 static unsigned int borderpx   = 1;  /* border pixel of windows */
 static unsigned int snap       = 32; /* snap pixel */
 static int showbar             = 1;  /* 0 means no bar */
