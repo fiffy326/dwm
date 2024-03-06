@@ -53,7 +53,7 @@ static const char *tags[]    = { "󰣇", "", "", "", "", "", "�
 static const char *tagsalt[] = { "󰬺", "󰬻", "󰬼", "󰬽", "󰬾", "󰬿", "󰭀", "󰭁", "󰭂" };
 static const char *defaulttagapps[] = {
 	"st",
-	"st",
+	"glava",
 	"virt-manager",
 	"firefox",
 	"thunderbird",
@@ -93,6 +93,7 @@ static const Rule rules[] = {
 	{ "st",           NULL,     NULL,           0,           0,          1,           0,         -1 },
 	{ "Alacritty",    NULL,     NULL,           0,           0,          1,           0,         -1 },
 	{ "cool-retro-term", NULL,  NULL,           0,           0,          1,           0,         -1 },
+	{ "GLava",        NULL,     NULL,           tagmask[2],  0,          0,           0,         -1 },
 	{ "Virt-manager", NULL,     NULL,           tagmask[3],  0,          0,           0,         -1 },
 	{ "firefox",      NULL,     NULL,           tagmask[4],  0,          0,           0,         -1 },
 	{ "thunderbird",  NULL,     NULL,           tagmask[5],  0,          0,           0,         -1 },
