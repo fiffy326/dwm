@@ -19,3 +19,4 @@
 - dwm-titlecolor-20210815-ed3ab6b4.diff
 - dwm-alpha-20230401-348f655.diff
 - dwm-default-tag-apps-20210327-61bb8b2.diff
+- dwm-ewmhtags-6.2.diff
