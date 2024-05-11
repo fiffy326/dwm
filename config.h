@@ -49,15 +49,15 @@ static const unsigned int alphas[][3] = {
 
 /* tagging */
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
-static const char *tags[]    = { "󰣇", "", "", "", "", "", "󰓓", "󰙯", "" };
+static const char *tags[]    = { "󰑴", "", "", "", "", "󰍳", "󰓓", "󰙯", "" };
 static const char *tagsalt[] = { "󰬺", "󰬻", "󰬼", "󰬽", "󰬾", "󰬿", "󰭀", "󰭁", "󰭂" };
 static const char *defaulttagapps[] = {
 	"st",
-	"glava",
-	"virt-manager",
+	"intellij-idea-ultimate-edition",
 	"firefox",
 	"thunderbird",
 	"gnome-calendar",
+	"prismlauncher",
 	"steam",
 	"discord",
 	"spotify"
@@ -93,14 +93,17 @@ static const Rule rules[] = {
 	{ "st",           NULL,     NULL,           0,           0,          1,           0,         -1 },
 	{ "Alacritty",    NULL,     NULL,           0,           0,          1,           0,         -1 },
 	{ "cool-retro-term", NULL,  NULL,           0,           0,          1,           0,         -1 },
-	{ "GLava",        NULL,     NULL,           tagmask[2],  0,          0,           0,         -1 },
-	{ "Virt-manager", NULL,     NULL,           tagmask[3],  0,          0,           0,         -1 },
-	{ "firefox",      NULL,     NULL,           tagmask[4],  0,          0,           0,         -1 },
-	{ "thunderbird",  NULL,     NULL,           tagmask[5],  0,          0,           0,         -1 },
-	{ "gnome-calendar", NULL,   NULL,           tagmask[6],  0,          0,           0,         -1 },
+	{ "GLava",        NULL,     NULL,           0,           0,          0,           0,         -1 },
+	{ "Virt-manager", NULL,     NULL,           0,           0,          0,           0,         -1 },
+	{ "firefox",      NULL,     NULL,           tagmask[3],  0,          0,           0,         -1 },
+	{ "thunderbird",  NULL,     NULL,           tagmask[4],  0,          0,           0,         -1 },
+	{ "gnome-calendar", NULL,   NULL,           tagmask[5],  0,          0,           0,         -1 },
 	{ "steam",        NULL,     NULL,           tagmask[7],  0,          0,           0,         -1 },
 	{ "discord",      NULL,     NULL,           tagmask[8],  0,          0,           0,         -1 },
 	{ "Spotify",      NULL,     NULL,           tagmask[9],  0,          0,           0,         -1 },
+	{ "MATLAB R2024a - academic use", NULL, NULL, 0,         0,          0,           0,         -1 },
+	{ NULL, "sun-awt-X11-XWindowPeer", NULL,    0,           1,          0,           0,         -1 },
+	{ NULL, NULL, "DefaultOverlayManager.JWindow", 0,        1,          0,           0,         -1 }
 };
 
 /* layout(s) */
